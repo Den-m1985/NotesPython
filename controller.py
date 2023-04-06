@@ -23,7 +23,7 @@ def distribute(n):
 
     elif n == '2':
         # Восстанавливаем заметку из формата JSON
-        restored_note = read_json.read_json2(file_name)
+        restored_note = read_json.read_json(file_name)
         enter = input('Нажмите Enter для выхода в меню ')
 
     elif n == '3':

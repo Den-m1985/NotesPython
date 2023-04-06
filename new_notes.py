@@ -12,6 +12,9 @@ class Note:
     def set_id(self, note_id):
         self.id = note_id
 
+    def get_id(self):
+        return self.id
+
     def set_created_at(self, created_at):
         self.created_at = created_at
 

@@ -1,13 +1,15 @@
 import json
+import datetime
+import new_notes
 
 
-def read_json(cls, filename):
+def read_json(filename):
     notes = []
     try:
         with open(filename, "r", encoding="utf-8") as f:
             notes_dict = json.load(f)
             for note_dict in notes_dict:
-                note = cls.from_dict(note_dict)
+                note = new_notes.Note.from_dict(note_dict)
                 notes.append(note)
     except FileNotFoundError:
         pass
@@ -19,7 +21,7 @@ def read_json2(filename):
     with open(filename, "r", encoding='utf-8') as f:
         notes_dict = json.load(f)
         for i in notes_dict:
-            g = list(notes_dict[i])
+            g = list(i)
             data.append(g)
     return data
 
@@ -35,6 +37,20 @@ def load_from_file(cls, filename):
     with open(filename, 'r', encoding='utf-8') as f:
         note_dict = json.load(f)
     return cls.from_dict(note_dict)
+
+
+@classmethod
+def read_notes(cls, filename):
+    notes = []
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            notes_dict = json.load(f)
+            for note_dict in notes_dict:
+                note = cls.from_dict(note_dict)
+                notes.append(note)
+    except FileNotFoundError:
+        pass
+    return notes
 
 
 '''
