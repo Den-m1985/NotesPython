@@ -1,6 +1,8 @@
+import controller
 
 def menu():
-    while True:
+    attempts = 0
+    while attempts < 3:
         print('\nМЕНЮ')
         print('1. Добавить новую запись')  # Работает
         print('2. Вывод записей на экран')  # Работает
@@ -9,6 +11,12 @@ def menu():
         print('5. Удалить заметку')  # надо сделать
         print('6. Выход\n')  # работает
         number = input('Выберите пункт меню: ')
-        # controller.distribute(number)
-        if number == '6':
+
+        if ('0' < number < '6'):
+            print('fzbd')
+            controller.distribute(number)
+        elif (number == '6'):
             break
+        else:
+            print('Неправильно')
+            attempts += 1
