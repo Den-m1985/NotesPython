@@ -1,5 +1,5 @@
 import read_json
-import new_notes
+import Note
 
 '''
 def read_notes(cls, filename):

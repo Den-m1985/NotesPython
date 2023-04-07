@@ -1,6 +1,6 @@
 import json
 import datetime
-import new_notes
+import Note
 
 
 def read_json(filename):
@@ -21,8 +21,9 @@ def read_json2(filename):
     with open(filename, "r", encoding='utf-8') as f:
         notes_dict = json.load(f)
         for i in notes_dict:
-            g = list(i)
-            data.append(g)
+            print(i)
+            #g = list(i)
+            data.append(i)
     return data
 
 

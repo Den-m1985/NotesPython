@@ -1,8 +1,8 @@
 from datetime import datetime
 
-import new_notes
-import read_json
-import write_json
+import Note
+from JsonNoteReader import JsonNoteReader
+from Operation import Operation
 
 
 def distribute(n):
@@ -11,19 +11,29 @@ def distribute(n):
 
     if n == '1':
         # Создаем заметку
-        note = new_notes.Note("Заголовок заметки", "Текст заметки")
+        note = Note.Note("Заголовок заметки", "Текст заметки")
         # Устанавливаем идентификатор
         note.set_id(1)
         # время создания заметки
         note.set_created_at(datetime.now())
         # Сохраняем заметку в формате JSON
         note_json = note.to_dict()
-        write_json.write_json(note_json, file_name)
+
+        operation = Operation(file_name)
+        operation.read_to_write_json(note_json)
+        #writer = JsonNoteWriter(file_name)
+        #writer.write(note_json)
+        #new_notes.Note.write_notes(file_name, note_json)
+        #write_json.write_json(note_json, file_name)
         enter = input('Нажмите Enter для завершения')
 
     elif n == '2':
         # Восстанавливаем заметку из формата JSON
-        restored_note = read_json.read_json(file_name)
+        #reader = JsonNoteReader(file_name)
+        #read_notes = reader.read()
+        note = Note.Note("Заголовок заметки", "Текст заметки")
+        note.print_note()
+
         enter = input('Нажмите Enter для выхода в меню ')
 
     elif n == '3':
