@@ -13,7 +13,6 @@ def menu():
         number = input('Выберите пункт меню: ')
 
         if ('0' < number < '6'):
-            print('fzbd')
             controller.distribute(number)
         elif (number == '6'):
             break
